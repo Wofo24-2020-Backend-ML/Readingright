@@ -72,12 +72,19 @@ class ItemView(APIView):
     def get(self, request, pk=None, format=None):
         id = pk
         if id is not None:
-            item_data = AddItem.objects.get(id=id)
+            item_data = AddItem.object.get(id=id)
             serialized_item_data = AddItemSerializer(item_data)
             return Response(serialized_item_data.data)
-        item_data = AddItem.objects.all()
+        item_data = AddItem.object.all()
         serialized_item_data = AddItemSerializer(item_data, many=True)
         return Response(serialized_item_data.data)
+
+
+class ItemReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet):
+  queryset = AddItem.objects.all()
+  serializer_class = AddItemSerializer
+
+
 
 
 class AddItemView(viewsets.ModelViewSet):
@@ -126,9 +133,11 @@ def AddItem(request):
 def SavedItem(request):
     pass
 
+def Loginhtml(request):
+    return render(request, 'login.html')
 
-
-
+def Signuphtml(request):
+    return render(request, 'signup.html')
 
 
 class LogoutView(APIView):

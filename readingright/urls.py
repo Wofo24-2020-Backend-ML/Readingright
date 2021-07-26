@@ -12,6 +12,7 @@ router = DefaultRouter()
 
 router.register('additem', views.AddItemView)
 router.register('saveitem', views.SavedItemView)
+router.register('item', views.ItemReadOnlyModelViewSet, basename='Item')
 
 
 urlpatterns = [
@@ -21,12 +22,14 @@ urlpatterns = [
     path('createuser/', views.UserSignupAPIVIEW.as_view()),
     path('login/', views.LoginView.as_view()),
     path('logout/', views.LogoutView.as_view(), name='logout'),
-    path('item/', views.ItemView.as_view()),
-    path('item/<int:pk>', views.ItemView.as_view()),
+    #path('item/', views.ItemView.as_view()),
+    #path('item/<int:pk>', views.ItemView.as_view()),
     path('api/', include(router.urls)),
     path('', views.Home, name="Home"),
     path('additem/', views.AddItem, name="Add Item"),
     path('saveditem/', views.SavedItem, name="Saved List"),
+    path('userlogin/', views.Loginhtml, name="Login"),
+    path('signuplayout/', views.Signuphtml, name="Signup"),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 

@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Login" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+  <body>
+    <div id="signup-div" class="center">
+      <table>
+        <tr>
+          <td style="width: 33.33%">
+            <div class="dash"></div>
+          </td>
+          <td style="padding: 0 6px">
+            <h1>Login</h1>
+          </td>
+          <td style="width: 33.33%">
+            <div class="dash"></div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div>
+              <input id="rr_phone" type="text" placeholder="Phone number" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div>
+              <input id="rr_password" placeholder="Password" type="password" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div>
+              <input type="submit" id="rr_submit" value="Login Now" />
+            </div>
+          </td>
+        </tr>
+      </table>
+      <footer>
+        <p>
+          Already have an account? <a href="https://www.google.com/">Sign in</a>
+        </p>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+  </body>
+</html>
